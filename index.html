@@ -33,90 +33,135 @@ body {
 
 /* SPLASH */
 #splash {
-  position: fixed;
-  inset: 0;
-  background: var(--black);
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 40px 28px 60px;
-  overflow-y: auto;
+position: fixed;
+inset: 0;
+background: var(--black);
+z-index: 9999;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+padding: 40px 28px 60px;
+overflow-y: auto;
 }
 
 .splash-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 52px;
-  letter-spacing: 10px;
+font-family: 'Bebas Neue', sans-serif;
+font-size: 52px;
+letter-spacing: 10px;
+color: var(--white);
+margin-bottom: 4px;
 }
 
 .splash-logo span { color: var(--gold-bright); }
 
 .splash-sub {
-  font-size: 10px;
-  letter-spacing: 4px;
-  color: var(--grey);
-  margin-bottom: 40px;
+font-size: 10px;
+letter-spacing: 4px;
+color: var(--grey);
+text-transform: uppercase;
+margin-bottom: 48px;
 }
 
-.enter-btn {
-  margin-top: 40px;
-  background: var(--gold-bright);
-  color: var(--black);
-  padding: 16px 40px;
-  border: none;
-  font-weight: 900;
-  letter-spacing: 3px;
-  cursor: pointer;
+/* NAV */
+nav {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+background: rgba(0,0,0,0.92);
+padding: 14px 24px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.nav-logo {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 28px;
+letter-spacing: 6px;
+color: var(--white);
+text-decoration: none;
+}
+
+.nav-logo span { color: var(--gold-bright); }
+
+.nav-cta {
+border: 1.5px solid var(--gold-bright);
+color: var(--gold-bright);
+padding: 8px 20px;
+text-decoration: none;
 }
 
 /* MAIN */
 #main-site { display: none; }
 
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #000;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
+/* HERO */
+#hero {
+padding: 100px 24px 20px;
+text-align: center;
 }
 
-.nav-logo {
-  font-family: 'Bebas Neue';
-  letter-spacing: 5px;
-  color: white;
-  text-decoration: none;
+.hero-headline {
+font-family: 'Bebas Neue', sans-serif;
+font-size: clamp(52px, 12vw, 96px);
+color: var(--white);
+margin-bottom: 24px;
 }
 
-.nav-logo span { color: var(--gold-bright); }
-
-.section {
-  padding: 100px 20px;
-  text-align: center;
+.hero-headline span {
+color: var(--gold-bright);
+display: block;
 }
 
-.hero {
-  padding-top: 120px;
+.hero-sub {
+font-size: 18px;
+color: #AAAAAA;
+max-width: 520px;
+margin: 0 auto 40px;
 }
 
-.hero h1 {
-  font-family: 'Bebas Neue';
-  font-size: 60px;
+.btn-gold {
+background: var(--gold-bright);
+color: var(--black);
+padding: 18px 40px;
+text-decoration: none;
+display: inline-block;
 }
 
-.hero span { color: var(--gold-bright); }
+/* VIDEO */
+.video-section-inner {
+max-width: 640px;
+margin: 40px auto;
+text-align: center;
+}
 
-.btn {
-  margin-top: 20px;
-  display: inline-block;
-  background: var(--gold-bright);
-  color: black;
-  padding: 15px 30px;
-  text-decoration: none;
-  font-weight: bold;
+.video-headline {
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+iframe {
+width: 100%;
+aspect-ratio: 16/9;
+border: 2px solid var(--gold-bright);
+}
+
+/* PRICING */
+.pricing-card {
+max-width: 420px;
+margin: 40px auto;
+border: 2px solid var(--gold-bright);
+padding: 40px;
+background: var(--dark2);
+text-align: center;
+}
+
+.price-amount {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 80px;
+color: var(--gold-bright);
 }
 
 </style>
@@ -128,20 +173,41 @@ nav {
 <div id="splash">
   <div class="splash-logo"><span>ARE</span>PRO</div>
   <div class="splash-sub">Amplified Real Estate Professional</div>
-  <button class="enter-btn" onclick="enterSite()">ENTER</button>
+  <button onclick="enterSite()" style="margin-top:40px;padding:16px 40px;background:var(--gold-bright);border:none;font-weight:900;">ENTER</button>
 </div>
 
-<!-- MAIN -->
 <div id="main-site">
 
 <nav>
-  <a href="#" class="nav-logo"><span>ARE</span>PRO</a>
+  <a href="#hero" class="nav-logo"><span>ARE</span>PRO</a>
+  <a href="#pricing" class="nav-cta">Start Dominating</a>
 </nav>
 
-<div class="section hero">
-  <h1>STOP CHASING LEADS.<br><span>LET THEM COME TO YOU.</span></h1>
-  <a href="#" class="btn">START DOMINATING</a>
-</div>
+<section id="hero">
+  <div class="hero-headline">
+    STOP CHASING LEADS.<span>LET THEM COME TO YOU.</span>
+  </div>
+  <p class="hero-sub">We turn your Instagram into a fully automated lead machine that captures buyers and sellers on autopilot.</p>
+  <a href="#pricing" class="btn-gold">START DOMINATING</a>
+</section>
+
+<section class="video-section-inner">
+  <div class="video-headline">The minute you sign up you become an amplified real estate professional.</div>
+  <iframe src="https://www.youtube.com/embed/ArGF5Y7vAMo"></iframe>
+</section>
+
+<section class="video-section-inner">
+  <div class="video-headline">Most services give you one piece. We give you all three.</div>
+  <iframe src="https://www.youtube.com/embed/sW8kx7EZSpU"></iframe>
+</section>
+
+<section id="pricing">
+  <div class="pricing-card">
+    <div class="price-amount">$347</div>
+    <p>Per Month</p>
+    <a href="https://buy.stripe.com/eVq5kE0ricKkfaraZnbwk03" class="btn-gold">CLAIM YOUR FREE MONTH</a>
+  </div>
+</section>
 
 </div>
 
